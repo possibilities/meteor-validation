@@ -39,7 +39,7 @@ var breakClientValidation = function() {
 
   var message = 'Great, you broke it. Try ' + 
                 'submitting an invalid form!';
-  Session.set('profileError', message);
+  Session.set('profileErrors', message);
 };
 
 Template.demo.events = {
