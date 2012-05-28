@@ -10,21 +10,11 @@ Meteor.startup(function() {
       Session.set('clientDemoForm', result.content);
     }
   });
-  // Meteor.http.get('examples/horizontal.js', function(err, result) {
-  //   if (!err) {
-  //     Session.set('horizontalForm', result.content);
-  //   }
-  // });
-  // Meteor.http.get('examples/inline.js', function(err, result) {
-  //   if (!err) {
-  //     Session.set('inlineForm', result.content);
-  //   }
-  // });
-  // Meteor.http.get('examples/search.js', function(err, result) {
-  //   if (!err) {
-  //     Session.set('searchForm', result.content);
-  //   }
-  // });
+  Meteor.http.get('examples/serverAndClient.js', function(err, result) {
+    if (!err) {
+      Session.set('serverAndClientDemoForm', result.content);
+    }
+  });
 });
 
 // Get github fork me graphic loaded. Found that client subscriptions sometimes

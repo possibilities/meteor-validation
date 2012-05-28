@@ -2,7 +2,7 @@
   <title>Validation Demo</title>
   <!-- purposely preventing this from getting minified -->
   <script src="examples/client.js"></script>
-  <script src="examples/server.js"></script>
+  <script src="examples/serverAndClient.js"></script>
 </head>
 
 <body onload="prettyPrint()">
@@ -42,6 +42,12 @@
           <p>
             TODO
           </p>
+          <div class="span6">
+            {{{serverAndClientDemo}}}
+          </div>
+          <div class="span5">
+            <pre class="prettyprint">{{code serverAndClientDemo}}</pre>
+          </div>
         </div>
         <div class="tab-pane" id="server">
           <h2>Server</h2>

@@ -21,6 +21,12 @@ ClientDemoValidator = Model.extend({
       title: [
         shouldNotContainFuck(),
         shouldBeMinimumLength(6)
+      ],
+      body: [
+        shouldBeMinimumLength(10)
+      ],
+      section: [
+        shouldBeMinimumLength(2)
       ]
     }
   }
