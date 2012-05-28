@@ -15,6 +15,10 @@ pre, .well, .tabbable {
   margin-top: 20px;
 }
 
+p {
+  line-height: 25px;
+}
+
 pre {
   padding: 20px !important;
   border: 1px solid #eee !important;
