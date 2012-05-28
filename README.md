@@ -1,6 +1,6 @@
 # Meteor Validation
 
-Common validation for models on the client and server
+A smart package for validating meteor-forms (and POJOs)
 
 ## Usage
 
