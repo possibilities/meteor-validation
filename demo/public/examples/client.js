@@ -1,4 +1,4 @@
-var shouldNotBeFuck = function(options) {
+var shouldNotContainFuck = function(options) {
   var self = this;
   var defaultOptions = {
     message: "cannot be 'fuck'. Great word but not appropriate for the demo (;"
@@ -6,7 +6,7 @@ var shouldNotBeFuck = function(options) {
   options = _.extend(defaultOptions, options);
 
   return function(name, attribute) {
-    if (attribute && attribute.toLowerCase() === 'fuck') {
+    if (attribute && /fuck/.test(attribute.toLowerCase())) {
       return _.humanize(name) + ' ' + options.message;
     }
   };
@@ -20,7 +20,7 @@ ClientDemoValidator = Model.extend({
                     "Try it again!",
     validators: {
       title: [
-        shouldNotBeFuck(),
+        shouldNotContainFuck(),
         shouldBeMinimumLength(6)
       ]
     }
