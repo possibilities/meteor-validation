@@ -21,7 +21,7 @@ Template.demo.serverAndClientDemo = function() {
         label: 'Save'
       },
       'break', {
-        classes: 'btn-warning',
+        classes: 'btn-danger',
         label: 'Break client side validations'
       }
     ]
@@ -39,7 +39,7 @@ var breakClientValidation = function() {
 
   var message = 'Great, you broke it. Try ' + 
                 'submitting an invalid form!';
-  Session.set('profileSuccess', message);
+  Session.set('profileError', message);
 };
 
 Template.demo.events = {
