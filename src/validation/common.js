@@ -29,7 +29,7 @@ Model.registerPlugin({
 
   _runValidator: function(details, validations, fieldName) {
     var self = this;
-    var value, error, details = {};
+    var value, error;
 
     // Run each validator
     _.each(validations, function(validator) {
