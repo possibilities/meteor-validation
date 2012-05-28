@@ -21,7 +21,7 @@ Template.demo.serverAndClientDemo = function() {
         label: 'Save'
       },
       'break', {
-        classes: 'btn-warning',
+        classes: 'btn-danger',
         label: 'Break client side validations'
       }
     ]
