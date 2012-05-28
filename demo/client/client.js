@@ -10,9 +10,9 @@ Meteor.startup(function() {
       Session.set('clientDemoForm', result.content);
     }
   });
-  Meteor.http.get('examples/serverAndClient.js', function(err, result) {
+  Meteor.http.get('/examples/serverAndClient.js', function(err, result) {
     if (!err) {
-      Session.set('serverAndClientDemoForm', result.content);
+      Session.set('profileForm', result.content);
     }
   });
 });

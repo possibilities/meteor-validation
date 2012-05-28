@@ -1,8 +1,5 @@
 <head>
   <title>Validation Demo</title>
-  <!-- purposely preventing this from getting minified -->
-  <script src="examples/client.js"></script>
-  <script src="examples/serverAndClient.js"></script>
 </head>
 
 <body onload="prettyPrint()">
@@ -18,14 +15,14 @@
 
     <div class="tabbable">
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#client" data-toggle="tab">Client</a></li>
-        <li><a href="#serverAndClient" data-toggle="tab">Server + Client</a></li>
+        <li><a href="#client" data-toggle="tab">Client</a></li>
+        <li class="active"><a href="#serverAndClient" data-toggle="tab">Server + Client</a></li>
         <li><a href="#server" data-toggle="tab">Server</a></li>
         <li><a href="#withMongoHooks" data-toggle="tab">w/ Mongo Hooks</a></li>
         <li><a href="#pojos" data-toggle="tab">POJOs</a></li>
       </ul>
       <div class="tab-content span12">
-        <div class="tab-pane active" id="client">
+        <div class="tab-pane" id="client">
           <h2>Client</h2>
           <p>
             Validate on the client <em>only</em> by associating a validator with the form.
@@ -37,7 +34,7 @@
             <pre class="prettyprint">{{code clientDemo}}</pre>
           </div>
         </div>
-        <div class="tab-pane" id="serverAndClient">
+        <div class="tab-pane active" id="serverAndClient">
           <h2>Server + Client</h2>
           <p>
             TODO
@@ -70,6 +67,10 @@
       </div>
     </div>
   </div>
+</template>
+
+<template name="breakAction">
+  <button type="submit" class="btn breakAction" name="break">{{label}}</button>
 </template>
 
 <template name="forkMe">
