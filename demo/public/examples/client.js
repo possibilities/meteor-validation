@@ -1,7 +1,7 @@
 var shouldNotContainFuck = function(options) {
   options = _.extend({
-    message: "cannot be 'fuck'. Great word but " +
-             "not appropriate for the demo (;"
+    message: "cannot be 'fuck'. Great word but not " +
+             "appropriate for the demo (;"
   }, options);
 
   return function(name, attribute) {
