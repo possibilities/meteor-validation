@@ -15,39 +15,60 @@
 
     <div class="tabbable">
       <ul class="nav nav-tabs">
-        <li><a href="#client" data-toggle="tab">Client</a></li>
-        <li class="active"><a href="#serverAndClient" data-toggle="tab">Server + Client</a></li>
-        <li><a href="#server" data-toggle="tab">Server</a></li>
+        <li class="active"><a href="#client" data-toggle="tab">Client</a></li>
+        <li><a href="#serverAndClient" data-toggle="tab">Server + Client</a></li>
+        <li><a href="#withMagic" data-toggle="tab">w/ Magic</a></li>
+        <li><a href="#withModels" data-toggle="tab">w/ Models</a></li>
         <li><a href="#withMongoHooks" data-toggle="tab">w/ Mongo Hooks</a></li>
-        <li><a href="#pojos" data-toggle="tab">POJOs</a></li>
+        <li><a href="#withPojos" data-toggle="tab">w/ POJOs</a></li>
       </ul>
       <div class="tab-content span12">
-        <div class="tab-pane" id="client">
+        <div class="tab-pane active" id="client">
           <h2>Client</h2>
           <p>
             Validate on the client <em>only</em> by associating a validator with the form.
           </p>
-          <div class="span6">
+          <div class="span5">
             {{{clientDemo}}}
           </div>
-          <div class="span5">
-            <pre class="prettyprint">{{code clientDemo}}</pre>
+          <div class="span6">
+            <div class="code">
+              <div class="label">Client</div>
+              <pre class="prettyprint">{{clientCode clientDemo}}</pre>
+            </div>
           </div>
         </div>
-        <div class="tab-pane active" id="serverAndClient">
+        <div class="tab-pane" id="serverAndClient">
           <h2>Server + Client</h2>
+          <p>
+            It's easy to point a form at a <code>Meteor.method</code> and have the validations run on both the client and server. The method you want to submit to is specified by passing a key called <code>method</code> when creating the Form class. You can run validation manually in your <code>Meteor.method</code>by wrapping the form data in a validator and calling it's <code>isValid</code> method.
+          </p>
+          <div class="span5">
+            {{{serverAndClientDemo}}}
+          </div>
+          <div class="span6">
+            <div class="code">
+              <div class="label">Server</div>
+              <pre class="prettyprint">{{serverCode serverAndClientDemo}}</pre>
+            </div>
+            <div class="code">
+              <div class="label">Common</div>
+              <pre class="prettyprint">{{commonCode serverAndClientDemo}}</pre>
+            </div>
+            <div class="code">
+              <div class="label">Client</div>
+              <pre class="prettyprint">{{clientCode serverAndClientDemo}}</pre>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="withMagic">
+          <h2>w/ Magic</h2>
           <p>
             TODO
           </p>
-          <div class="span6">
-            {{{serverAndClientDemo}}}
-          </div>
-          <div class="span5">
-            <pre class="prettyprint">{{code serverAndClientDemo}}</pre>
-          </div>
         </div>
-        <div class="tab-pane" id="server">
-          <h2>Server</h2>
+        <div class="tab-pane" id="withModels">
+          <h2>w/ Models</h2>
           <p>
             TODO
           </p>
@@ -58,8 +79,8 @@
             TODO
           </p>
         </div>
-        <div class="tab-pane" id="pojos">
-          <h2>POJOs</h2>
+        <div class="tab-pane" id="withPojos">
+          <h2>w/ POJOs</h2>
           <p>
             TODO
           </p>

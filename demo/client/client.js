@@ -1,18 +1,40 @@
-Template.demo.code = function(form) {
-  var name = form.tag.name + 'Form';
+var code = function(form, env) {
+  var name = _.camelize(form.tag.name + '_' + env + '_form');
   Meteor.defer(prettyPrint);
   return Session.get(name);
 };
 
+Template.demo.clientCode = function(form) {
+  return code(form, 'client');
+};
+
+Template.demo.serverCode = function(form) {
+  return code(form, 'server');
+};
+
+Template.demo.commonCode = function(form) {
+  return code(form, 'common');
+};
+
 Meteor.startup(function() {
-  Meteor.http.get('/examples/client.js', function(err, result) {
+  Meteor.http.get('/examples/client/client.js', function(err, result) {
     if (!err) {
-      Session.set('clientDemoForm', result.content);
+      Session.set('clientDemoClientForm', result.content);
     }
   });
-  Meteor.http.get('/examples/serverAndClient.js', function(err, result) {
+  Meteor.http.get('/examples/client/serverAndClient.js', function(err, result) {
     if (!err) {
-      Session.set('profileForm', result.content);
+      Session.set('profileClientForm', result.content);
+    }
+  });
+  Meteor.http.get('/examples/server/serverAndClient.js', function(err, result) {
+    if (!err) {
+      Session.set('profileServerForm', result.content);
+    }
+  });
+  Meteor.http.get('/examples/common/serverAndClient.js', function(err, result) {
+    if (!err) {
+      Session.set('profileCommonForm', result.content);
     }
   });
 });
