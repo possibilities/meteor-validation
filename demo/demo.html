@@ -1,0 +1,71 @@
+<head>
+  <title>Validation Demo</title>
+  <!-- purposely preventing this from getting minified -->
+  <script src="examples/client.js"></script>
+  <script src="examples/server.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+  {{> demo}}
+  {{> forkMe}}
+</body>
+
+<template name="demo">
+  <div class="container">
+    <h1>Validation Demo</h1>
+
+    <p><em>A smart package for validating <a href="http://forms.meteor.com">meteor-forms</a> (and <a href="http://ajaxian.com/archives/return-of-the-pojo-plain-ole-javascript">POJOs</a>)</em></p>
+
+    <div class="tabbable">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#client" data-toggle="tab">Client</a></li>
+        <li><a href="#serverAndClient" data-toggle="tab">Server + Client</a></li>
+        <li><a href="#server" data-toggle="tab">Server</a></li>
+        <li><a href="#withMongoHooks" data-toggle="tab">w/ Mongo Hooks</a></li>
+        <li><a href="#pojos" data-toggle="tab">POJOs</a></li>
+      </ul>
+      <div class="tab-content span12">
+        <div class="tab-pane active" id="client">
+          <h2>Client</h2>
+          <p>
+            Validate on the client <em>only</em> by associating a validator with the form.
+          </p>
+          <div class="span6">
+            {{{clientDemo}}}
+          </div>
+          <div class="span5">
+            <pre class="prettyprint">{{code clientDemo}}</pre>
+          </div>
+        </div>
+        <div class="tab-pane" id="serverAndClient">
+          <h2>Server + Client</h2>
+          <p>
+            TODO
+          </p>
+        </div>
+        <div class="tab-pane" id="server">
+          <h2>Server</h2>
+          <p>
+            TODO
+          </p>
+        </div>
+        <div class="tab-pane" id="withMongoHooks">
+          <h2>w/ Mongo Hooks</h2>
+          <p>
+            TODO
+          </p>
+        </div>
+        <div class="tab-pane" id="pojos">
+          <h2>POJOs</h2>
+          <p>
+            TODO
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="forkMe">
+  <a href="https://github.com/possibilities/meteor-validation"><img class="forkMe" style="position: absolute; top: 0; right: 0; border: 0;" data-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+</template>
