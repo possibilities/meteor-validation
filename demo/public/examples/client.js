@@ -1,9 +1,7 @@
 var shouldNotContainFuck = function(options) {
-  var self = this;
-  var defaultOptions = {
+  options = _.extend({
     message: "cannot be 'fuck'. Great word but not appropriate for the demo (;"
-  };
-  options = _.extend(defaultOptions, options);
+  }, options);
 
   return function(name, attribute) {
     if (attribute && /fuck/.test(attribute.toLowerCase())) {
