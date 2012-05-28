@@ -11,30 +11,46 @@ Validation.Error.prototype = new Meteor.Error();
 Model.registerPlugin({
   isValid: function() {
     var self = this;
-    self._error_details = {};
-    _.each(self.validations.validators, function(validations, fieldName) {
-      self._fieldValidator(validations, fieldName)
-    });
-    if (!_.isEmpty(self._error_details)) {
+
+    // Run validator
+    var details = _.reduce(self.validations.validators, self._runValidator, {}, self);
+
+    // If we have errors bail out
+    if (!_.isEmpty(details))
       self.errors = new Validation.Error({
         message: self.validations.errorMessage,
-        details: self._error_details
+        details: details
       });
-      return false;
-    }
-    delete self._errors_details;
-    return true;
+
+    // No errors
+    else
+      return true;
   },
 
-  _fieldValidator: function(validations, fieldName) {
+  _runValidator: function(details, validations, fieldName) {
     var self = this;
-    var value, error;
+    var value, error, details = {};
+
+    // Run each validator
     _.each(validations, function(validator) {
+
+      // Get the current value
       value = self[fieldName];
+
+      // Run validator on the field
       if (error = validator(fieldName, value)) {
-        self._error_details[fieldName] || (self._error_details[fieldName] = [])
-        self._error_details[fieldName].push(error);
+
+        // Add the error to details
+        if (details[fieldName])
+          details[fieldName].push(error);
+
+        // Add first error to details
+        else
+          details[fieldName] = [error];
       }
     });
+
+    // return the details
+    return details;
   }
 });
