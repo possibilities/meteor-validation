@@ -23,7 +23,7 @@
         <li><a href="#withPojos" data-toggle="tab">w/ POJOs</a></li>
       </ul>
       <div class="tab-content span12">
-        <div class="tab-pane" id="client">
+        <div class="tab-pane active" id="client">
           <h2>Client</h2>
           <p>
             Validate on the client <em>only</em> by associating a validator with the form.
@@ -61,7 +61,7 @@
             </div>
           </div>
         </div>
-        <div class="tab-pane active" id="withMagic">
+        <div class="tab-pane" id="withMagic">
           <h2>w/ Magic</h2>
           <p>
             Adding validation code to <code>Meteor.methods</code> manually is boring and bored developers give up and spend all day on HackerNews (or Pintrest¿). If you define your form in a script that loads on both server and client environments with a <code>Meteor.method</code> specified by the form's <code>method</code> key the method will be checked with the appropriate validator before the <code>Meteor.method</code> is called.

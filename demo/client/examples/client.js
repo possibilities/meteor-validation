@@ -12,7 +12,7 @@ var shouldNotContainFuck = function(options) {
 };
 
 ClientDemoValidator = Model.extend({
-  validations: {
+  validate: {
     errorMessage: "The client demo form isn't happy, " +
                   "make things right and try again!",
     successMessage: "Great, you made a happy form, " +

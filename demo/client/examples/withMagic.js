@@ -6,7 +6,7 @@ var breakClientValidation = function() {
   
   // Override the validation class with no validations
   BookValidator = Model.extend({
-    validations: {
+    validate: {
       successMessage: "Done, you submitted the broken form!"
     }
   });

@@ -8,17 +8,17 @@ Validation = {
 };
 Validation.Error.prototype = new Meteor.Error();
 
-Model.registerPlugin({
+Model.validator({
   isValid: function() {
     var self = this;
 
     // Run validator
-    var details = _.reduce(self.validations.inputs, self._runValidator, {}, self);
+    var details = _.reduce(self.validate.inputs, self._runValidator, {}, self);
 
     // If we have errors bail out
     if (!_.isEmpty(details))
       self.errors = new Validation.Error({
-        message: self.validations.errorMessage,
+        message: self.validate.errorMessage,
         details: details
       });
 

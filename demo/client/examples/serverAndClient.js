@@ -32,7 +32,7 @@ var breakClientValidation = function() {
   
   // Override the validation class with no validations
   ProfileValidator = Model.extend({
-    validations: {
+    validate: {
       successMessage: "Done, you submitted the broken form!"
     }
   });

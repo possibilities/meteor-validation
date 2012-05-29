@@ -1,7 +1,7 @@
 Tinytest.add("validation", function (test) {
 
   User = Model.extend({
-    validations: {
+    validate: {
       errorMessage: 'Yo, try again!',
       inputs: {
         firstName: {
@@ -39,7 +39,7 @@ Tinytest.add("validation", function (test) {
   test.isTrue(validUser.isValid());
   
   FunkyUser = Model.extend({
-    validations: {
+    validate: {
       inputs: {
         firstName: {
           label: 'Funky first name',

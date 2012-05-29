@@ -1,5 +1,5 @@
 ProfileValidator = Model.extend({
-  validations: {
+  validate: {
     errorMessage: "The demo form isn't happy, make " +
                   "things right and try again!",
     successMessage: "Great, you made a happy form, " +
