@@ -4,7 +4,11 @@ var shouldBeAnISBN = function(options) {
   }, options);
 
   return function(attribute) {
-    var isbn =  attribute && ISBN.parse(attribute);
+    var isbn;
+
+    if (attribute)
+      isbn = ISBN.parse(attribute);
+
     if (!isbn || !isbn.isValid()) {
       return options;
     }
