@@ -23,7 +23,6 @@ Template.demo.events = {
   },
   'keydown .breakAction': function(e) {
 
-    // TODO add method _.isSubmitKey(e)
     // Return or space bar on the button 
     // should break the form
     if (_.isSubmitKey(e)) {
