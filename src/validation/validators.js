@@ -11,7 +11,7 @@ var shouldBePresent = function(options) {
   };
 };
 
-var shouldBeMinimumLength = function(minimumLength, options) {
+var shouldBeLongerThan = function(minimumLength, options) {
   options = _.extend({
     message: 'must be at least ' + minimumLength + ' characters long'
   }, options);

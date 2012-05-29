@@ -6,7 +6,7 @@ Tinytest.add("validation", function (test) {
       inputs: {
         firstName: {
           validators: [
-            shouldBeMinimumLength(6)
+            shouldBeLongerThan(6)
           ]
         }
       }
@@ -44,7 +44,7 @@ Tinytest.add("validation", function (test) {
         firstName: {
           label: 'Funky first name',
           validators: [
-            shouldBeMinimumLength(6)
+            shouldBeLongerThan(6)
           ]
         }
       }

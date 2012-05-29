@@ -24,12 +24,12 @@ BookValidator = Model.extend({
     inputs: {
       title: {
         validators: [
-          shouldBeMinimumLength(6)
+          shouldBeLongerThan(6)
         ]
       },
       author: {
         validators: [
-          shouldBeMinimumLength(6)
+          shouldBeLongerThan(6)
         ]
       },
       isbn: {

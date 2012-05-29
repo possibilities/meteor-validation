@@ -7,17 +7,17 @@ ProfileValidator = Model.extend({
     inputs: {
       firstName: {
         validators: [
-          shouldBeMinimumLength(6)
+          shouldBeLongerThan(6)
         ]
       },
       lastName: {
         validators: [
-          shouldBeMinimumLength(6)
+          shouldBeLongerThan(6)
         ]
       },
       about: {
         validators: [
-          shouldBeMinimumLength(20)
+          shouldBeLongerThan(20)
         ]
       }
     }
