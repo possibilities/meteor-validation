@@ -1,5 +1,11 @@
 _.mixin(_.string.exports());
 
+_.mixin({
+  isSubmitKey: function(e) {
+    return e.keyCode === 13 || e.keyCode === 32;
+  }
+});
+
 Validation = {
   Error: function(error) {
     var message = error.message || 'There was a problem processing your request';

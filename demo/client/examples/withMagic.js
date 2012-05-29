@@ -26,7 +26,7 @@ Template.demo.events = {
     // TODO add method _.isSubmitKey(e)
     // Return or space bar on the button 
     // should break the form
-    if (e.keyCode === 13 || e.keyCode === 32) {
+    if (_.isSubmitKey(e)) {
       e.preventDefault();
       breakClientValidation();
     }
