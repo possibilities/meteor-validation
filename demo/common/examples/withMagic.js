@@ -1,23 +1,37 @@
-ProfileValidator = Model.extend({
+var shouldBeAnISBN = function(options) {
+  options = _.extend({
+    message: "must be a valid ISBN 10 or 13"
+  }, options);
+
+  return function(attribute) {
+    var isbn =  attribute && ISBN.parse(attribute);
+    if (!isbn || !isbn.isValid()) {
+      return options;
+    }
+  };
+};
+
+BookValidator = Model.extend({
   validations: {
     errorMessage: "The demo form isn't happy, make " +
                   "things right and try again!",
     successMessage: "Great, you made a happy form, " +
                     "Try it again!",
     inputs: {
-      firstName: {
+      title: {
         validators: [
           shouldBeMinimumLength(6)
         ]
       },
-      lastName: {
+      author: {
         validators: [
           shouldBeMinimumLength(6)
         ]
       },
-      about: {
+      isbn: {
+        label: 'ISBN',
         validators: [
-          shouldBeMinimumLength(20)
+          shouldBeAnISBN()
         ]
       }
     }

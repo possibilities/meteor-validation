@@ -4,9 +4,9 @@ var shouldNotContainFuck = function(options) {
              "but not appropriate for the demo (;"
   }, options);
 
-  return function(name, attribute) {
+  return function(attribute) {
     if (attribute && /fuck/.test(attribute.toLowerCase())) {
-      return _.humanize(name) + ' ' + options.message;
+      return options;
     }
   };
 };
@@ -17,17 +17,23 @@ ClientDemoValidator = Model.extend({
                   "make things right and try again!",
     successMessage: "Great, you made a happy form, " +
                     "Try it again!",
-    validators: {
-      title: [
-        shouldNotContainFuck(),
-        shouldBeMinimumLength(6)
-      ],
-      body: [
-        shouldBeMinimumLength(10)
-      ],
-      section: [
+    inputs: {
+      title: {
+        validators: [
+          shouldNotContainFuck(),
+          shouldBeMinimumLength(6)
+        ]
+      },
+      body: {
+        validators: [
+          shouldBeMinimumLength(10)
+        ]
+      },
+      section: {
+        validators: [
         shouldBeMinimumLength(2)
-      ]
+        ]
+      }
     }
   }
 });

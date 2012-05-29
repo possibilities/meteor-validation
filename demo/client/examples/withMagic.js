@@ -1,17 +1,17 @@
-Template.demo.serverAndClientDemo = function() {
+Template.demo.withMagicDemo = function() {
   return new Form({
-    name: 'profile',
+    name: 'book',
     classes: 'well',
-    method: 'validateAndEcho'
+    method: 'validateAndEchoWithMagic'
   }).tag({
     inputs: [
-      'firstName',
-      'lastName',
-      'about', {
-        as: 'textarea'
+      'title',
+      'author',
+      'isbn', {
+        label: 'ISBN'
       },
-      'awesome', {
-        label: 'Are you awesome?',
+      'missing', {
+        label: 'Missing?',
         as: 'checkbox'
       }
     ],
@@ -31,7 +31,7 @@ Template.demo.serverAndClientDemo = function() {
 var breakClientValidation = function() {
   
   // Override the validation class with no validations
-  ProfileValidator = Model.extend({
+  BookValidator = Model.extend({
     validations: {
       successMessage: "Done, you submitted the broken form!"
     }
@@ -39,7 +39,7 @@ var breakClientValidation = function() {
 
   var message = 'Great, you broke it. Try ' + 
                 'submitting an invalid form!';
-  Session.set('profileErrors', message);
+  Session.set('bookErrors', message);
 };
 
 Template.demo.events = {
@@ -49,6 +49,7 @@ Template.demo.events = {
   },
   'keydown .breakAction': function(e) {
 
+    // TODO add method _.isSubmitKey(e)
     // Return or space bar on the button 
     // should break the form
     if (e.keyCode === 13 || e.keyCode === 32) {

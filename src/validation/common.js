@@ -13,7 +13,7 @@ Model.registerPlugin({
     var self = this;
 
     // Run validator
-    var details = _.reduce(self.validations.validators, self._runValidator, {}, self);
+    var details = _.reduce(self.validations.inputs, self._runValidator, {}, self);
 
     // If we have errors bail out
     if (!_.isEmpty(details))
@@ -27,26 +27,30 @@ Model.registerPlugin({
       return true;
   },
 
-  _runValidator: function(details, validations, fieldName) {
+  _runValidator: function(details, input, fieldName) {
     var self = this;
-    var value, error;
+    var value, error, message, label;
 
     // Run each validator
-    _.each(validations, function(validator) {
+    _.each(input.validators, function(validator) {
 
       // Get the current value
       value = self[fieldName];
-
+    
       // Run validator on the field
-      if (error = validator(fieldName, value)) {
-
+      if (error = validator(value)) {
+    
+        // Figure out the message
+        label = input.label || _.humanize(fieldName);
+        message = label + ' ' + error.message;
+    
         // Add the error to details
         if (details[fieldName])
-          details[fieldName].push(error);
-
+          details[fieldName].push(message);
+    
         // Add first error to details
         else
-          details[fieldName] = [error];
+          details[fieldName] = [message];
       }
     });
 
