@@ -1,31 +1,5 @@
 Template.demo.withMagicDemo = function() {
-  return new Form({
-    name: 'book',
-    classes: 'well',
-    method: 'validateAndEchoWithMagic'
-  }).tag({
-    inputs: [
-      'title',
-      'author',
-      'isbn', {
-        label: 'ISBN'
-      },
-      'missing', {
-        label: 'Missing?',
-        as: 'checkbox'
-      }
-    ],
-    actions: [
-      'cancel',
-      'submit', {
-        label: 'Save'
-      },
-      'break', {
-        classes: 'btn-danger',
-        label: 'Break client side validations'
-      }
-    ]
-  });
+  return magicDemoForm;
 };
 
 var breakClientValidation = function() {

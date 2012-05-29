@@ -41,3 +41,31 @@ BookValidator = Model.extend({
     }
   }
 });
+
+var magicDemoForm = new Form({
+  name: 'book',
+  classes: 'well',
+  method: 'validateAndEchoWithMagic'
+}).tag({
+  inputs: [
+    'title',
+    'author',
+    'isbn', {
+      label: 'ISBN'
+    },
+    'missing', {
+      label: 'Missing?',
+      as: 'checkbox'
+    }
+  ],
+  actions: [
+    'cancel',
+    'submit', {
+      label: 'Save'
+    },
+    'break', {
+      classes: 'btn-danger',
+      label: 'Break client side validations'
+    }
+  ]
+});

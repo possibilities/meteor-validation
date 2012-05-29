@@ -32,9 +32,24 @@ Meteor.startup(function() {
       Session.set('profileServerForm', result.content);
     }
   });
-  Meteor.http.get('/examples/common/serverAndClient.js', function(err, result) {
+  Meteor.http.get('/examples/common/withMagic.js', function(err, result) {
     if (!err) {
-      Session.set('profileCommonForm', result.content);
+      Session.set('bookCommonForm', result.content);
+    }
+  });
+  Meteor.http.get('/examples/client/withMagic.js', function(err, result) {
+    if (!err) {
+      Session.set('bookClientForm', result.content);
+    }
+  });
+  Meteor.http.get('/examples/server/withMagic.js', function(err, result) {
+    if (!err) {
+      Session.set('bookServerForm', result.content);
+    }
+  });
+  Meteor.http.get('/examples/common/withMagic.js', function(err, result) {
+    if (!err) {
+      Session.set('bookCommonForm', result.content);
     }
   });
 });
