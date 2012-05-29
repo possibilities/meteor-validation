@@ -14,7 +14,7 @@ Validation = {
 };
 Validation.Error.prototype = new Meteor.Error();
 
-Model.validator({
+Model.extension({
   isValid: function() {
     var self = this;
 
