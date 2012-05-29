@@ -56,9 +56,7 @@ Tinytest.add("validation", function (test) {
     lastName: 'Lombardo'
   });
 
-  // Use label field if it's provided
   invalidUser.isValid();
-  console.log(invalidUser.errors.details.firstName);
   test.isTrue(_.isEqual(invalidUser.errors.details.firstName, ['Funky first name must be at least 6 characters long']));
   
 });
