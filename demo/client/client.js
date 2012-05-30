@@ -17,37 +17,37 @@ Template.demo.commonCode = function(form) {
 };
 
 Meteor.startup(function() {
-  Meteor.http.get('/examples/client/client.js', function(err, result) {
+  Meteor.http.get('/_examples/client/client.js', function(err, result) {
     if (!err) {
       Session.set('clientDemoClientForm', result.content);
     }
   });
-  Meteor.http.get('/examples/client/serverAndClient.js', function(err, result) {
+  Meteor.http.get('/_examples/client/serverAndClient.js', function(err, result) {
     if (!err) {
       Session.set('profileClientForm', result.content);
     }
   });
-  Meteor.http.get('/examples/server/serverAndClient.js', function(err, result) {
+  Meteor.http.get('/_examples/server/serverAndClient.js', function(err, result) {
     if (!err) {
       Session.set('profileServerForm', result.content);
     }
   });
-  Meteor.http.get('/examples/common/withMagic.js', function(err, result) {
+  Meteor.http.get('/_examples/common/withMagic.js', function(err, result) {
     if (!err) {
       Session.set('bookCommonForm', result.content);
     }
   });
-  Meteor.http.get('/examples/client/withMagic.js', function(err, result) {
+  Meteor.http.get('/_examples/client/withMagic.js', function(err, result) {
     if (!err) {
       Session.set('bookClientForm', result.content);
     }
   });
-  Meteor.http.get('/examples/server/withMagic.js', function(err, result) {
+  Meteor.http.get('/_examples/server/withMagic.js', function(err, result) {
     if (!err) {
       Session.set('bookServerForm', result.content);
     }
   });
-  Meteor.http.get('/examples/common/withMagic.js', function(err, result) {
+  Meteor.http.get('/_examples/common/withMagic.js', function(err, result) {
     if (!err) {
       Session.set('bookCommonForm', result.content);
     }
