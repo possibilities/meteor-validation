@@ -2,8 +2,7 @@ Template.demo.serverAndClientDemo = function() {
   return new Form({
     name: 'profile',
     classes: 'well',
-    method: 'validateAndEcho'
-  }).tag({
+    method: 'validateAndEcho',
     inputs: [
       'firstName',
       'lastName',

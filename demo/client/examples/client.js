@@ -41,8 +41,7 @@ ClientDemoValidator = Model.extend({
 Template.demo.clientDemo = function() {
   return new Form({
     name: 'clientDemo',
-    classes: 'well'
-  }).tag({
+    classes: 'well',
     inputs: [
       'title',
       'body', {

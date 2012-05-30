@@ -1,5 +1,5 @@
 var code = function(form, env) {
-  var name = _.camelize(form.tag.name + '_' + env + '_form');
+  var name = _.camelize(form.name + '_' + env + '_form');
   Meteor.defer(prettyPrint);
   return Session.get(name);
 };

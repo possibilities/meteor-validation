@@ -45,8 +45,7 @@ BookValidator = Model.extend({
 var magicDemoForm = new Form({
   name: 'book',
   classes: 'well',
-  method: 'validateAndEchoWithMagic'
-}).tag({
+  method: 'validateAndEchoWithMagic',
   inputs: [
     'title',
     'author',
