@@ -1,10 +1,10 @@
-Template.demo.withMagicDemo = function() {
+Template.withMagic.withMagicDemo = function() {
   return magicDemoForm;
 };
 
-var breakClientValidation = function() {
+var breakWithMagicDemo = function() {
   
-  // Override the validation class with no validations
+  // Kill the validation class by overwriting it
   BookValidator = Model.extend({
     validate: {
       successMessage: "Done, you submitted the broken form!"
@@ -16,10 +16,10 @@ var breakClientValidation = function() {
   Session.set('bookErrors', message);
 };
 
-Template.demo.events = {
+Template.withMagic.events = {
   'click .breakAction': function(e) {
     e.preventDefault();
-    breakClientValidation();
+    breakWithMagicDemo();
   },
   'keydown .breakAction': function(e) {
 
@@ -27,7 +27,7 @@ Template.demo.events = {
     // should break the form
     if (_.isSubmitKey(e)) {
       e.preventDefault();
-      breakClientValidation();
+      breakWithMagicDemo();
     }
   }
 };

@@ -38,7 +38,7 @@ ClientDemoValidator = Model.extend({
   }
 });
 
-Template.demo.clientDemo = function() {
+Template.client.clientDemo = function() {
   return new Form({
     name: 'clientDemo',
     classes: 'well',

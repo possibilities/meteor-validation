@@ -23,83 +23,107 @@
         <li><a href="#withPojos" data-toggle="tab">w/ POJOs</a></li>
       </ul>
       <div class="tab-content span12">
-        <div class="tab-pane active" id="client">
-          <h2>Client</h2>
-          <p>
-            Validate on the client <em>only</em> by associating a validator with the form.
-          </p>
-          <div class="span5">
-            {{{clientDemo}}}
-          </div>
-          <div class="span6">
-            <div class="code">
-              <div class="label">Client</div>
-              <pre class="prettyprint">{{clientCode clientDemo}}</pre>
-            </div>
-          </div>
-        </div>
-        <div class="tab-pane" id="serverAndClient">
-          <h2>Server + Client</h2>
-          <p>
-            It's easy to point a form at a <code>Meteor.method</code> and have the validations run on both the client and server. The method you want to submit to is specified by passing a key called <code>method</code> when creating the Form class. You can run validation manually in your <code>Meteor.method</code> by wrapping the form data in a validator and calling it's <code>isValid</code> method.
-          </p>
-          <div class="span5">
-            {{{serverAndClientDemo}}}
-          </div>
-          <div class="span6">
-            <div class="code">
-              <div class="label">Server</div>
-              <pre class="prettyprint">{{serverCode serverAndClientDemo}}</pre>
-            </div>
-            <div class="code">
-              <div class="label">Client</div>
-              <pre class="prettyprint">{{clientCode serverAndClientDemo}}</pre>
-            </div>
-          </div>
-        </div>
-        <div class="tab-pane" id="withMagic">
-          <h2>w/ Magic</h2>
-          <p>
-            Adding validation code to <code>Meteor.methods</code> manually is boring and bored developers give up and spend all day on HackerNews (or Pintrest¿). If you define your form in a script that loads on both server and client environments the form data will be automatically checked with the appropriate validator before the <code>Meteor.method</code> is called.
-          </p>
-          <div class="span5">
-            {{{withMagicDemo}}}
-          </div>
-          <div class="span6">
-            <div class="code">
-              <div class="label">Server</div>
-              <pre class="prettyprint">{{serverCode withMagicDemo}}</pre>
-            </div>
-            <div class="code">
-              <div class="label">Common</div>
-              <pre class="prettyprint">{{commonCode withMagicDemo}}</pre>
-            </div>
-            <div class="code">
-              <div class="label">Client</div>
-              <pre class="prettyprint">{{clientCode withMagicDemo}}</pre>
-            </div>
-          </div>
-        </div>
-        <div class="tab-pane" id="withModels">
-          <h2>w/ Models</h2>
-          <p>
-            TODO
-          </p>
-        </div>
-        <div class="tab-pane" id="withMongoHooks">
-          <h2>w/ Mongo Hooks</h2>
-          <p>
-            TODO
-          </p>
-        </div>
-        <div class="tab-pane" id="withPojos">
-          <h2>w/ POJOs</h2>
-          <p>
-            TODO
-          </p>
-        </div>
+        {{> client}}
+        {{> serverAndClient}}
+        {{> withMagic}}
+        {{> withModels}}
+        {{> withMongoHooks}}
+        {{> withPojos}}
       </div>
     </div>
+  </div>
+</template>
+
+<template name="client">
+  <div class="tab-pane active" id="client">
+    <h2>Client</h2>
+    <p>
+      Validate on the client <em>only</em> by associating a validator with the form.
+    </p>
+    <div class="span5">
+      {{{clientDemo}}}
+    </div>
+    <div class="span6">
+      <div class="code">
+        <div class="label">Client</div>
+        <pre class="prettyprint">{{clientCode clientDemo}}</pre>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="serverAndClient">
+  <div class="tab-pane" id="serverAndClient">
+    <h2>Server + Client</h2>
+    <p>
+      It's easy to point a form at a <code>Meteor.method</code> and have the validations run on both the client and server. The method you want to submit to is specified by passing a key called <code>method</code> when creating the Form class. You can run validation manually in your <code>Meteor.method</code> by wrapping the form data in a validator and calling it's <code>isValid</code> method.
+    </p>
+    <div class="span5">
+      {{{serverAndClientDemo}}}
+    </div>
+    <div class="span6">
+      <div class="code">
+        <div class="label">Server</div>
+        <pre class="prettyprint">{{serverCode serverAndClientDemo}}</pre>
+      </div>
+      <div class="code">
+        <div class="label">Client</div>
+        <pre class="prettyprint">{{clientCode serverAndClientDemo}}</pre>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="withMagic">
+  <div class="tab-pane" id="withMagic">
+    <h2>w/ Magic</h2>
+    <p>
+      Adding validation code to <code>Meteor.methods</code> manually is boring and bored developers give up and spend all day on HackerNews (or Pintrest¿). If you define your form in a script that loads on both server and client environments the form data will be automatically checked with the appropriate validator before the <code>Meteor.method</code> is called.
+    </p>
+    <div class="span5">
+      {{{withMagicDemo}}}
+    </div>
+    <div class="span6">
+      <div class="code">
+        <div class="label">Server</div>
+        <pre class="prettyprint">{{serverCode withMagicDemo}}</pre>
+      </div>
+      <div class="code">
+        <div class="label">Common</div>
+        <pre class="prettyprint">{{commonCode withMagicDemo}}</pre>
+      </div>
+      <div class="code">
+        <div class="label">Client</div>
+        <pre class="prettyprint">{{clientCode withMagicDemo}}</pre>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="withModels">
+  <div class="tab-pane" id="withModels">
+    <h2>w/ Models</h2>
+    <p>
+      TODO
+    </p>
+  </div>
+</template>
+
+<template name="withMongoHooks">
+  <div class="tab-pane" id="withMongoHooks">
+    <h2>w/ Mongo Hooks</h2>
+    <p>
+      TODO
+    </p>
+  </div>
+</template>
+
+<template name="withPojos">
+  <div class="tab-pane" id="withPojos">
+    <h2>w/ POJOs</h2>
+    <p>
+      TODO
+    </p>
   </div>
 </template>
 

@@ -4,17 +4,19 @@ var code = function(form, env) {
   return Session.get(name);
 };
 
-Template.demo.clientCode = function(form) {
-  return code(form, 'client');
-};
+_.each(['client', 'serverAndClient', 'withMagic'], function(template) {
+  Template[template].clientCode = function(form) {
+    return code(form, 'client');
+  };
 
-Template.demo.serverCode = function(form) {
-  return code(form, 'server');
-};
+  Template[template].serverCode = function(form) {
+    return code(form, 'server');
+  };
 
-Template.demo.commonCode = function(form) {
-  return code(form, 'common');
-};
+  Template[template].commonCode = function(form) {
+    return code(form, 'common');
+  };
+});
 
 Meteor.startup(function() {
   Meteor.http.get('/_examples/client/client.js', function(err, result) {

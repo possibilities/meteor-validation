@@ -1,4 +1,4 @@
-Template.demo.serverAndClientDemo = function() {
+Template.serverAndClient.serverAndClientDemo = function() {
   return new Form({
     name: 'profile',
     classes: 'well',
@@ -27,9 +27,9 @@ Template.demo.serverAndClientDemo = function() {
   });
 };
 
-var breakClientValidation = function() {
-  
-  // Override the validation class with no validations
+var breakServerAndClientDemo = function() {
+
+  // Kill the validation class by overwriting it
   ProfileValidator = Model.extend({
     validate: {
       successMessage: "Done, you submitted the broken form!"
@@ -41,10 +41,10 @@ var breakClientValidation = function() {
   Session.set('profileErrors', message);
 };
 
-Template.demo.events = {
+Template.serverAndClient.events = {
   'click .breakAction': function(e) {
     e.preventDefault();
-    breakClientValidation();
+    breakServerAndClientDemo();
   },
   'keydown .breakAction': function(e) {
 
@@ -52,7 +52,7 @@ Template.demo.events = {
     // should break the form
     if (_.isSubmitKey(e)) {
       e.preventDefault();
-      breakClientValidation();
+      breakServerAndClientDemo();
     }
   }
 };
