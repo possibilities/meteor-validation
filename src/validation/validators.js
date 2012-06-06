@@ -1,10 +1,9 @@
 var shouldBePresent = function(options) {
   options = _.extend({
-    message: 'is a required field'
+    messageSuffix: 'is a required field'
   }, options);
 
   return function(attribute) {
-
     if (!!!attribute) {
       return options;
     }
@@ -13,7 +12,7 @@ var shouldBePresent = function(options) {
 
 var shouldBeLongerThan = function(minimumLength, options) {
   options = _.extend({
-    message: 'must be at least ' + minimumLength + ' characters long'
+    messageSuffix: 'must be at least ' + minimumLength + ' characters long'
   }, options);
 
   return function(attribute) {

@@ -1,5 +1,5 @@
 Package.describe({
-  summary: "A smart package for validating meteor-forms (and POJOs)"
+  summary: "A smart package for validation"
 });
 
 Package.on_use(function (api) {
@@ -15,6 +15,7 @@ Package.on_use(function (api) {
   // Core
   api.add_files('common.js', ['client', 'server']);
   api.add_files('validators.js', ['client', 'server']);
+  api.add_files('filters.js', 'server');
 });
 
 Package.on_test(function (api) {

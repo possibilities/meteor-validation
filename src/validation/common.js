@@ -15,22 +15,28 @@ Validation = {
 Validation.Error.prototype = new Meteor.Error();
 
 Model.extension({
+  initialize: function(attributes) {
+    _.extend(this, attributes);
+  },
+
   isValid: function() {
     var self = this;
 
     // Run validator
     var details = _.reduce(self.validate.inputs, self._runValidator, {}, self);
+    
+    // No errors
+    if (_.isEmpty(details)) {
+      return true;
 
-    // If we have errors bail out
-    if (!_.isEmpty(details))
+    // We have errors
+    } else {
       self.errors = new Validation.Error({
         message: self.validate.errorMessage,
         details: details
       });
-
-    // No errors
-    else
-      return true;
+      return false;
+    }
   },
 
   _runValidator: function(details, input, fieldName) {
@@ -47,16 +53,18 @@ Model.extension({
       if (error = validator(value)) {
     
         // Figure out the message
-        label = input.label || _.humanize(fieldName);
-        message = label + ' ' + error.message;
+        if (!error.message) {
+          label = input.label || _.humanize(fieldName);
+          error.message = label + ' ' + error.messageSuffix;
+        }
     
         // Add the error to details
         if (details[fieldName])
-          details[fieldName].push(message);
+          details[fieldName].push(error.message);
     
         // Add first error to details
         else
-          details[fieldName] = [message];
+          details[fieldName] = [error.message];
       }
     });
 
