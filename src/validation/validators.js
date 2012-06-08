@@ -21,3 +21,15 @@ var shouldBeLongerThan = function(minimumLength, options) {
     }
   };
 };
+
+var shouldBeShorterThan = function(maximumLength, options) {
+  options = _.extend({
+    messageSuffix: 'must be less than ' + maximumLength + ' characters long'
+  }, options);
+
+  return function(attribute) {
+    if (attribute && attribute.length > maximumLength) {
+      return options;
+    }
+  };
+};
