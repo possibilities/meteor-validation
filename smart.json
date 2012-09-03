@@ -3,7 +3,7 @@
   "description": "A smart package for validation",
   "homepage": "https://github.com/possibilities/meteor-validation",
   "author": "Mike Bannister <notimpossiblemike@gmail.com> (http://po.ssibiliti.es)",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "git": "https://github.com/possibilities/meteor-validation.git",
   "packages": {
     "underscore-string": "2.2.0rc.1"
